@@ -1,0 +1,18 @@
+mvn install:install-file -Dfile=C:\Users\guo\workspace\eclipse\mall\lib\commons-codec-1.7.jar -DgroupId=mall.truelicense -DartifactId=commons-codec-mall -Dversion=1.7.2 -Dpackaging=jar;
+
+mvn install:install-file -Dfile=C:\Users\guo\workspace\eclipse\mall\lib\truelicense.jar -DgroupId=mall.truelicense -DartifactId=mall-truelicense-truelicense -Dversion=1.5.8 -Dpackaging=jar;
+
+mvn install:install-file -Dfile=C:\Users\guo\workspace\eclipse\mall\lib\trueswing.jar -DgroupId=mall.truelicense -DartifactId=mall-truelicense-trueswing -Dversion=1.5.8 -Dpackaging=jar;
+
+mvn install:install-file -Dfile=C:\Users\guo\workspace\eclipse\mall\lib\truexml.jar -DgroupId=mall.truelicense -DartifactId=mall-truelicense-truexml -Dversion=1.5.8 -Dpackaging=jar;
+
+
+Linux 包
+
+mvn install:install-file -Dfile=/root/mall/lib/commons-codec-1.7.jar -DgroupId=mall.truelicense -DartifactId=commons-codec-mall -Dversion=1.7.2 -Dpackaging=jar;
+
+mvn install:install-file -Dfile=/root/mall/lib/truelicense.jar -DgroupId=mall.truelicense -DartifactId=mall-truelicense-truelicense -Dversion=1.5.8 -Dpackaging=jar;
+
+mvn install:install-file -Dfile=/root/mall/lib/trueswing.jar -DgroupId=mall.truelicense -DartifactId=mall-truelicense-trueswing -Dversion=1.5.8 -Dpackaging=jar;
+
+mvn install:install-file -Dfile=/root/mall/lib/truexml.jar -DgroupId=mall.truelicense -DartifactId=mall-truelicense-truexml -Dversion=1.5.8 -Dpackaging=jar;
