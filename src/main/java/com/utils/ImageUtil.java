@@ -27,6 +27,8 @@ public class ImageUtil {
         int width = 384;  //图片的宽
         int height = 250; //图片的高
 
+        //QR_(0,50)_384_250
+
         //需要截取部分的坐标和大小
         Rectangle rect = new Rectangle(x, y, width, height);
 
