@@ -1,35 +1,32 @@
-package com.zxing;
+package com.demo;
 
 import com.google.zxing.*;
 import com.google.zxing.common.HybridBinarizer;
 import com.utils.ImageUtil;
+import com.zxing.BufferedImageLuminanceSource;
 
 import javax.imageio.ImageIO;
-import javax.imageio.ImageReadParam;
-import javax.imageio.ImageReader;
-import javax.imageio.stream.ImageInputStream;
-import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.*;
-import java.util.Arrays;
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * 解析图片中的二维码截取
  */
-public class TestZxing {
+public class TestQrcodeParseWithCutImage {
 
     public static void main(String[] args) {
-        TestZxing tz = new TestZxing();
+        TestQrcodeParseWithCutImage tz = new TestQrcodeParseWithCutImage();
         //解析二维码
-        tz.parseCode(new File("C:/二维码生成/test.png"), 2);
-        //tz.parseCode(new File("C:/二维码生成/cut__1502778977456_test.png"), Boolean.TRUE);
+        tz.parseCode(new File("E:/二维码生成/test.png"), 2);
     }
 
     /**
      * @param file   原图
-     * @param method 解析的方式 1:普通二维码  2:截取图中的局部 解析
+     * @param method 解析的方式
+     *               1:普通二维码
+     *               2:截取图中的局部 解析
      */
     public void parseCode(File file, Integer method) {
         try {
@@ -39,7 +36,6 @@ public class TestZxing {
             }
 
             BufferedImage image = null;
-
             switch (method) {
                 case 1:
                     image = ImageIO.read(file);
@@ -66,7 +62,6 @@ public class TestZxing {
             e.printStackTrace();
         }
     }
-
 
 
 }

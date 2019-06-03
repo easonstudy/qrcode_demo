@@ -1,4 +1,4 @@
-package com.zxing;
+package com.demo;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
@@ -14,11 +14,11 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TestLogo {
+public class TestQrcodeLogo {
     public static void main(String[] args) {
         String imgPath = "C:/二维码生成/zxing.jpg";
 
-        TestLogo tl = new TestLogo();
+        TestQrcodeLogo tl = new TestQrcodeLogo();
         tl.createQrcode(imgPath);
     }
 

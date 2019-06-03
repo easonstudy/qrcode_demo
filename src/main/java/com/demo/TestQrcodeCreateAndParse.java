@@ -1,27 +1,17 @@
-package com.zxing;
+package com.demo;
 
+import com.google.zxing.*;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.common.HybridBinarizer;
+import com.zxing.BufferedImageLuminanceSource;
+import com.zxing.MatrixToImageWriter;
+
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
-
-
 import java.util.Map;
-
-import javax.imageio.ImageIO;
-
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.Binarizer;
-import com.google.zxing.BinaryBitmap;
-import com.google.zxing.EncodeHintType;
-import com.google.zxing.LuminanceSource;
-import com.google.zxing.MultiFormatReader;
-import com.google.zxing.MultiFormatWriter;
-import com.google.zxing.Result;
-import com.google.zxing.WriterException;
-import com.google.zxing.common.BitMatrix;
-import com.google.zxing.common.HybridBinarizer;
-import com.zxing.BufferedImageLuminanceSource;
 
 
 /**
@@ -29,20 +19,26 @@ import com.zxing.BufferedImageLuminanceSource;
  * @author：Relieved
  * @date：2014-11-7 下午04:42:35
  */
-public class CreateParseCode {
+public class TestQrcodeCreateAndParse {
     public static void main(String[] args) throws IOException, WriterException {
-        CreateParseCode cpCode = new CreateParseCode();
-//		生成二维码
-        cpCode.createCode();
-//		解析二维码
-        cpCode.parseCode(new File("C:/二维码生成/TDC-test.png"));
+        TestQrcodeCreateAndParse cpCode = new TestQrcodeCreateAndParse();
 
+        // 生成二维码
+        File outfile = new File("E:/二维码生成/TDC-test.png");
+        if (!outfile.exists()) {
+            outfile.mkdirs();
+            outfile.createNewFile();
+        }
+        cpCode.createCode(outfile);
+
+        // 解析二维码
+        cpCode.parseCode(outfile);
     }
 
     /**
      * 二维码的生成
      */
-    public void createCode() {
+    public void createCode(File outputFile) {
         String text = "http://blog.csdn.net/gao36951";
         int width = 300;
         int height = 300;
@@ -56,9 +52,6 @@ public class CreateParseCode {
         hints.put(EncodeHintType.CHARACTER_SET, "utf-8");
         try {
             BitMatrix bitMatrix = new MultiFormatWriter().encode(text, BarcodeFormat.QR_CODE, width, height, hints);
-            // 生成二维码
-            File outputFile = new File("C:" + File.separator + "二维码生成" + File.separator + "TDC-test.png");
-
             MatrixToImageWriter.writeToFile(bitMatrix, format, outputFile);
         } catch (Exception e) {
             e.printStackTrace();
@@ -74,11 +67,9 @@ public class CreateParseCode {
     public void parseCode(File file) {
         try {
             MultiFormatReader formatReader = new MultiFormatReader();
-
             if (!file.exists()) {
                 return;
             }
-
             BufferedImage image = ImageIO.read(file);
 
             LuminanceSource source = new BufferedImageLuminanceSource(image);
